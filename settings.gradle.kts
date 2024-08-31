@@ -1,4 +1,7 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
+   includeBuild("build-logic")
    repositories {
       google {
          content {
@@ -21,4 +24,13 @@ dependencyResolutionManagement {
 
 rootProject.name = "InfoNacion"
 include(":app")
- 
+
+include(":domain:country")
+
+include(":feature:countries")
+include(":feature:common")
+
+include(":framework:core")
+include(":framework:countries")
+
+include(":test:unit")

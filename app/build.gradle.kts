@@ -1,6 +1,8 @@
 plugins {
    alias(libs.plugins.android.application)
    alias(libs.plugins.kotlin.android)
+   alias(libs.plugins.kotlin.compose.compiler)
+   alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
@@ -30,23 +32,25 @@ android {
       }
    }
    compileOptions {
-      sourceCompatibility = JavaVersion.VERSION_1_8
-      targetCompatibility = JavaVersion.VERSION_1_8
+      sourceCompatibility = JavaVersion.VERSION_22
+      targetCompatibility = JavaVersion.VERSION_22
    }
    kotlinOptions {
-      jvmTarget = "1.8"
+      jvmTarget = "22"
    }
    buildFeatures {
       compose = true
-   }
-   composeOptions {
-      kotlinCompilerExtensionVersion = "1.5.1"
    }
    packaging {
       resources {
          excludes += "/META-INF/{AL2.0,LGPL2.1}"
       }
    }
+
+   composeCompiler {
+      enableStrongSkippingMode = true
+   }
+
 }
 
 dependencies {
