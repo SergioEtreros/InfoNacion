@@ -21,5 +21,5 @@ android {
 }
 
 dependencies {
-   implementation(project(":domain:country"))
+   implementation(project(":framework:countries"))
 }

@@ -1,4 +1,4 @@
-package com.minato.infonacion.ui.theme
+package com.minato.common.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

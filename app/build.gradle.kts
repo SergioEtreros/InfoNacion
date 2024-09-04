@@ -1,18 +1,16 @@
 plugins {
-   alias(libs.plugins.android.application)
-   alias(libs.plugins.kotlin.android)
-   alias(libs.plugins.kotlin.compose.compiler)
+   alias(libs.plugins.kotlin.serialization)
    alias(libs.plugins.google.devtools.ksp)
+   id("infonacion.android.application")
+   id("infonacion.android.application.compose")
+   id("infonacion.di.library.compose")
 }
 
 android {
    namespace = "com.minato.infonacion"
-   compileSdk = 34
 
    defaultConfig {
       applicationId = "com.minato.infonacion"
-      minSdk = 27
-      targetSdk = 34
       versionCode = 1
       versionName = "1.0"
 
@@ -30,17 +28,9 @@ android {
             "proguard-rules.pro"
          )
       }
+
    }
-   compileOptions {
-      sourceCompatibility = JavaVersion.VERSION_22
-      targetCompatibility = JavaVersion.VERSION_22
-   }
-   kotlinOptions {
-      jvmTarget = "22"
-   }
-   buildFeatures {
-      compose = true
-   }
+
    packaging {
       resources {
          excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -50,10 +40,15 @@ android {
    composeCompiler {
       enableStrongSkippingMode = true
    }
-
 }
 
 dependencies {
+
+   implementation(project(":domain:country"))
+   implementation(project(":framework:countries"))
+   implementation(project(":framework:core"))
+   implementation(project(":feature:countries"))
+   implementation(project(":feature:common"))
 
    implementation(libs.androidx.core.ktx)
    implementation(libs.androidx.lifecycle.runtime.ktx)

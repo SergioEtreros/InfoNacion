@@ -1,4 +1,4 @@
-package com.minato.infonacion.ui.theme
+package com.minato.common.theme
 
 import androidx.compose.ui.graphics.Color
 
