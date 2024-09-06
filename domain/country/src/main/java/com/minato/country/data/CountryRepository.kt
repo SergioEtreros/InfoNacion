@@ -7,17 +7,19 @@ class CountryRepository @Inject constructor(
    private val localDataSource: CountryLocalDataSource,
    private val remoteDataSource: CountryRemoteDataSource
 ) {
-   val countries = localDataSource.countries.onEach { localCountries ->
-      if (localCountries.isEmpty()) {
-         val remoteCountries = remoteDataSource.getCountries()
-         localDataSource.saveAllCountries(remoteCountries)
+   val countries
+      get() = localDataSource.countries.onEach { localCountries ->
+         if (localCountries.isEmpty()) {
+            val remoteCountries = remoteDataSource.getCountries()
+            localDataSource.saveAllCountries(remoteCountries)
+         }
       }
-   }
 
-   fun getCountryById(id: Int) = localDataSource.getCountryById(id).onEach { localCountry ->
-      if (localCountry == null) {
-         val remoteCountry = remoteDataSource.getCountryById(id)
-         localDataSource.saveCountry(remoteCountry)
+   fun getCountryByName(name: String) =
+      localDataSource.getCountryByName(name).onEach { localCountry ->
+         if (localCountry == null) {
+            val remoteCountry = remoteDataSource.getCountryByName(name)
+            localDataSource.saveCountry(remoteCountry)
+         }
       }
-   }
 }

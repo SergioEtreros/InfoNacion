@@ -1,17 +1,22 @@
 package com.minato.countries.network
 
+import com.minato.countries.network.model.RemoteResultCountry
 import com.minato.country.data.CountryRemoteDataSource
 import com.minato.country.entities.Country
 import javax.inject.Inject
 
-class CountriesServerDataSource @Inject constructor(
+internal class CountriesServerDataSource @Inject constructor(
    private val countryService: CountryService
 ) : CountryRemoteDataSource {
-   override fun getCountries(): List<Country> {
-      TODO("Not yet implemented")
+   override suspend fun getCountries(): List<Country> {
+      val response = countryService.getCountries()
+      return response.map { it.toDomainCountry() }
    }
 
-   override fun getCountryById(id: Int): Country {
-      TODO("Not yet implemented")
-   }
+   override suspend fun getCountryByName(name: String): Country =
+      countryService.getCountryByName(name).first().toDomainCountry()
 }
+
+private fun RemoteResultCountry.toDomainCountry() = Country(
+   name = name.common
+)

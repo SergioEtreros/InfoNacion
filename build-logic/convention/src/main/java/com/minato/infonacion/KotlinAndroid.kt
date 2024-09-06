@@ -18,18 +18,18 @@ internal fun Project.configureKotlinAndroid(
       compileSdk = 35
 
       defaultConfig {
-         minSdk = 24
+         minSdk = 26
       }
 
       compileOptions {
-         sourceCompatibility = JavaVersion.VERSION_22
-         targetCompatibility = JavaVersion.VERSION_22
+         sourceCompatibility = JavaVersion.VERSION_17
+         targetCompatibility = JavaVersion.VERSION_17
       }
 
       // Use withType to workaround https://youtrack.jetbrains.com/issue/KT-55947
       tasks.withType<KotlinCompile>().configureEach {
          kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_22.toString()
+            jvmTarget = JavaVersion.VERSION_17.toString()
          }
       }
 
@@ -44,8 +44,8 @@ internal fun Project.configureKotlinAndroid(
 
 internal fun Project.configureKotlinJvm() {
    extensions.configure<JavaPluginExtension> {
-      sourceCompatibility = JavaVersion.VERSION_22
-      targetCompatibility = JavaVersion.VERSION_22
+      sourceCompatibility = JavaVersion.VERSION_17
+      targetCompatibility = JavaVersion.VERSION_17
    }
 
    dependencies {

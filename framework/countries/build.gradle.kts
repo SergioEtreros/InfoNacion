@@ -8,6 +8,7 @@ plugins {
 android {
    namespace = "com.minato.countries"
 }
+
 dependencies {
    implementation(project(":domain:country"))
 }

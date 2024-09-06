@@ -6,11 +6,23 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 internal object FrameworkCoreModule {
+
+   @Provides
+   fun providesCountrydao(db: CountryDb) = db.countryDao()
+
+   @Provides
+   fun provideCountryService(@Named("base_url") baseUrl: String) = CountryClient(baseUrl).instance
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+internal object FrameworkExtrasModule {
 
    @Provides
    @Singleton
@@ -21,5 +33,5 @@ internal object FrameworkCoreModule {
    fun providesCountrydao(db: CountryDb) = db.countryDao()
 
    @Provides
-   fun provideCountryService() = CountryClient()
+   fun provideBaseUrl() = "https://restcountries.com/v3.1/"
 }

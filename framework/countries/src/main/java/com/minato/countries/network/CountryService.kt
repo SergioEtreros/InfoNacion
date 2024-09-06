@@ -1,13 +1,14 @@
 package com.minato.countries.network
 
+import com.minato.countries.network.model.RemoteResult
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface CountryService {
 
-   @GET("")
+   @GET("all")
    suspend fun getCountries(): RemoteResult
 
-   @GET("/{id}")
-   suspend fun getCountryById(@Path("id") id: Int): RemoteResult
+   @GET("name/{name}")
+   suspend fun getCountryByName(@Path("name") name: String): RemoteResult
 }

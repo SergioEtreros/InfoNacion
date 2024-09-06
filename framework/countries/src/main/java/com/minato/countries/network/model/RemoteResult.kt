@@ -1,0 +1,7 @@
+package com.minato.countries.network.model
+
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+class RemoteResult : ArrayList<RemoteResultCountry>()
