@@ -2,10 +2,17 @@ package com.minato.common.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val PrimaryLight = Color(0xFFC3F4DB)
+val PrimaryAltLight = Color(0xFFDEF9E6)
+val SecondaryLight = Color(0xFFE5E1FA)
+val SecondaryAltLight = Color(0xFFF7F2FC)
+val TertiaryLight = Color(0xFFFFF2D1)
+val TertiaryAltLight = Color(0xFFFFFCF0)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+
+val PrimaryDark = Color(0xFF419B6C)
+val PrimaryAltDark = Color(0xFF45A562)
+val SecondaryDark = Color(0xFF5144AA)
+val SecondaryAltDark = Color(0xFF7453A4)
+val TertiaryDark = Color(0xFFBA902E)
+val TertiaryAltDark = Color(0xFFC2A332)
