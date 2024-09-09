@@ -18,34 +18,44 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.minato.common.InfoNacionScaffold
+import com.minato.common.R
 import com.minato.common.Result
 import com.minato.common.Screen
-import com.minato.countries.R
 import com.minato.country.entities.Country
+
+@Composable
+fun MainScreen(
+   model: MainViewmodel = hiltViewModel(),
+   onClick: (Country) -> Unit
+) {
+
+   val state by model.state.collectAsStateWithLifecycle()
+
+   MainScreen(state, onClick)
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(onClick: (Country) -> Unit) {
-
-   val state = Result.Success(listOf(
-      Country(1, "España"),
-      Country(2, "Japón")
-   ))
-   val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+fun MainScreen(
+   state: Result<List<Country>>,
+   onClick: (Country) -> Unit
+) {
 
    Screen {
+      val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
       InfoNacionScaffold(
          state = state,
          topBar = {
             TopAppBar(
                title = {
-                  Text(text = "InfoNacion")
-//                  Text(text = stringResource(id = R.string.title))
+                  Text(text = stringResource(id = R.string.app_name))
                },
                scrollBehavior = scrollBehavior
             )
@@ -56,7 +66,6 @@ fun MainScreen(onClick: (Country) -> Unit) {
             modifier = Modifier
                .fillMaxSize()
                .padding(paddingValues)
-//               .padding(4.dp)
          ) {
             CountryList(countries, onClick)
          }
@@ -89,8 +98,4 @@ fun CountryItem(country: Country, onClick: (Country) -> Unit) {
    }
 }
 
-@Preview
-@Composable
-fun MainScreenPreview() {
-   MainScreen {}
-}
+

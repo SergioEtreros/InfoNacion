@@ -1,5 +1,6 @@
 package com.minato.country.data
 
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -21,5 +22,5 @@ class CountryRepository @Inject constructor(
             val remoteCountry = remoteDataSource.getCountryByName(name)
             localDataSource.saveCountry(remoteCountry)
          }
-      }
+      }.filterNotNull()
 }

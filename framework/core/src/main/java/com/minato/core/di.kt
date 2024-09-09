@@ -30,8 +30,7 @@ internal object FrameworkExtrasModule {
       Room.databaseBuilder(app, CountryDb::class.java, "Countries").build()
 
    @Provides
-   fun providesCountrydao(db: CountryDb) = db.countryDao()
-
-   @Provides
+   @Singleton
+   @Named("base_url")
    fun provideBaseUrl() = "https://restcountries.com/v3.1/"
 }
