@@ -3,6 +3,8 @@ package com.minato.region
 import android.app.Application
 import android.location.Geocoder
 import com.google.android.gms.location.LocationServices
+import com.minato.region.data.LocationDataSource
+import com.minato.region.data.RegionDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
