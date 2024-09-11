@@ -22,9 +22,9 @@ class CountriesRoomDataSource @Inject constructor(
       countryDao.insertCountry(country.toDbModel())
 
    override suspend fun saveAllCountries(countries: List<Country>) {
-      TODO("Not yet implemented")
+      countryDao.insertAllCountries(countries.map { it.toDbModel() })
    }
 }
 
 private fun DatabaseCountry.toDomainCountry() = Country(name = name)
-private fun Country.toDbModel() = DatabaseCountry(id = id, name = name)
+private fun Country.toDbModel() = DatabaseCountry(name = name)

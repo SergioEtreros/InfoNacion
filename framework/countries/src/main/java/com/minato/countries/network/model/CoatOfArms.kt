@@ -1,7 +1,9 @@
 package com.minato.countries.network.model
 
-
 import kotlinx.serialization.Serializable
 
 @Serializable
-class CoatOfArms
+data class CoatOfArms(
+   val png: String? = null,
+   val svg: String? = null
+)

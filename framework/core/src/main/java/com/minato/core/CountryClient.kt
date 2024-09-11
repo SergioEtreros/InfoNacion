@@ -18,9 +18,6 @@ internal class CountryClient(baseUrl: String) {
 
    private val okHttpClient = OkHttpClient.Builder()
       .addInterceptor(intercepter)
-//      .connectTimeout(200, TimeUnit.SECONDS)
-//      .writeTimeout(200, TimeUnit.SECONDS)
-//      .readTimeout(300, TimeUnit.SECONDS)
       .build()
 
    private val json = Json {

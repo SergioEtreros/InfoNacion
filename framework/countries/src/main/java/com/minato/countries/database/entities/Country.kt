@@ -5,7 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Country(
-   @PrimaryKey(autoGenerate = true)
-   val id: Int,
+   @PrimaryKey
    val name: String
 )

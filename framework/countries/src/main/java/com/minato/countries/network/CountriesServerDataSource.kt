@@ -1,6 +1,6 @@
 package com.minato.countries.network
 
-import com.minato.countries.network.model.RemoteResultCountry
+import com.minato.countries.network.model.CountryItem
 import com.minato.country.data.CountryRemoteDataSource
 import com.minato.country.entities.Country
 import javax.inject.Inject
@@ -17,6 +17,6 @@ internal class CountriesServerDataSource @Inject constructor(
       countryService.getCountryByName(name).first().toDomainCountry()
 }
 
-private fun RemoteResultCountry.toDomainCountry() = Country(
+private fun CountryItem.toDomainCountry() = Country(
    name = name.common
 )
