@@ -9,6 +9,6 @@ interface CountryService {
    @GET("all")
    suspend fun getCountries(): List<CountryItem>
 
-   @GET("name/{name}")
-   suspend fun getCountryByName(@Path("name") name: String): List<CountryItem>
+   @GET("name/{countryCode}")
+   suspend fun getCountryByCountryCode(@Path("countryCode") countryCode: String): List<CountryItem>
 }

@@ -80,7 +80,7 @@ fun CountryList(countries: List<Country>, onClick: (Country) -> Unit) {
       contentPadding = PaddingValues(8.dp),
       verticalArrangement = Arrangement.spacedBy(6.dp)
    ) {
-      items(countries, key = { it.name }) { country ->
+      items(countries, key = { it.countryCode }) { country ->
          CountryItem(country, onClick)
       }
    }
@@ -92,7 +92,7 @@ fun CountryItem(country: Country, onClick: (Country) -> Unit) {
       .fillMaxWidth()
       .clickable { onClick(country) }) {
       Column(modifier = Modifier.padding(8.dp)) {
-         Text(text = country.name)
+         Text(text = country.commonName)
       }
    }
 }

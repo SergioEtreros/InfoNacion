@@ -50,7 +50,7 @@ fun DetailScreen(
          topBar = {
             state.ifSuccess {
                TopAppBar(
-                  title = { Text(it.name) },
+                  title = { Text(it.commonName) },
                   navigationIcon = {
                      IconButton(onClick = onBack) {
                         Icon(

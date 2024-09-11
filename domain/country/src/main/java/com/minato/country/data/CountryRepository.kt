@@ -16,10 +16,10 @@ class CountryRepository @Inject constructor(
          }
       }
 
-   fun getCountryByName(name: String) =
-      localDataSource.getCountryByName(name).onEach { localCountry ->
+   fun getCountryByCountryCode(countryCode: String) =
+      localDataSource.getCountryByCountryCode(countryCode).onEach { localCountry ->
          if (localCountry == null) {
-            val remoteCountry = remoteDataSource.getCountryByName(name)
+            val remoteCountry = remoteDataSource.getCountryByCountryCode(countryCode)
             localDataSource.saveCountry(remoteCountry)
          }
       }.filterNotNull()
