@@ -9,7 +9,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewmodel @Inject constructor(
-   getCountriesListUseCase: GetCountriesListUseCase
+   getCountriesListUseCase: GetCountriesListUseCase,
+//   private val getLastRegionUseCase: GetLastRegionUseCase
 ) : ViewModel() {
 
    val state = getCountriesListUseCase().stateAsResultIn(viewModelScope)

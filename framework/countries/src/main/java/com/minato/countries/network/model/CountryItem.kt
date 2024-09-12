@@ -17,7 +17,7 @@ data class CountryItem(
    val capital: List<String> = emptyList(),
    val altSpellings: List<String>,
    val region: String,
-   val subRegion: String,
+   val subRegion: String = "",
    val languages: Languages? = null,
    val translations: Translations,
    val latlng: List<Double>,
