@@ -6,4 +6,4 @@ import kotlinx.serialization.Serializable
 object Main
 
 @Serializable
-data class Detail(val countryName: String)
+data class Detail(val countryCode: String)

@@ -1,5 +1,9 @@
 package com.minato.countries.main
 
+import android.Manifest
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,6 +20,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -29,19 +34,40 @@ import com.minato.country.entities.Country
 @Composable
 fun MainScreen(
    model: MainViewmodel = hiltViewModel(),
-   onClick: (Country) -> Unit
+   onItemClick: (Country) -> Unit
 ) {
 
    val state by model.state.collectAsStateWithLifecycle()
+   val context = LocalContext.current
 
-   MainScreen(state, onClick)
+   val permissionLauncher =
+      rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+         if (granted) {
+            model.getActualCountry { country ->
+               onItemClick(country)
+            }
+         } else {
+            Toast.makeText(
+               context,
+               "Se necesitan permisos de ubicación",
+               Toast.LENGTH_LONG
+            ).show()
+         }
+      }
+
+   MainScreen(
+      state = state,
+      onItemClick = onItemClick,
+      onLocationClick = { permissionLauncher.launch(Manifest.permission.ACCESS_COARSE_LOCATION) }
+   )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
    state: Result<List<Country>>,
-   onClick: (Country) -> Unit
+   onItemClick: (Country) -> Unit,
+   onLocationClick: () -> Unit
 ) {
 
    Screen {
@@ -55,7 +81,7 @@ fun MainScreen(
                },
                scrollBehavior = scrollBehavior,
                actions = {
-                  IconButton(onClick = {}) {
+                  IconButton(onClick = onLocationClick) {
                      Icon(
                         imageVector = Icons.Default.LocationOn,
                         contentDescription = stringResource(id = R.string.current_location)
@@ -71,7 +97,7 @@ fun MainScreen(
                .fillMaxSize()
                .padding(paddingValues)
          ) {
-            CountryList(countries, onClick)
+            CountryList(countries, onItemClick)
          }
       }
    }
@@ -80,11 +106,6 @@ fun MainScreen(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun MainScreenPreview() {
-   MainScreen(Result.Success(emptyList())) { }
+   MainScreen(Result.Success(emptyList()), {}, {})
 }
-
-
-
-
-
 

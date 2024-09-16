@@ -10,9 +10,9 @@ import javax.inject.Named
 
 @HiltViewModel
 class DetailViewmodel @Inject constructor(
-   @Named("countryName") private val countryName: String,
+   @Named("countryCode") private val countryCode: String,
    getCountryDetailsUseCase: GetCountryDetailsUseCase
 ) : ViewModel() {
 
-   val state = getCountryDetailsUseCase(countryName).stateAsResultIn(viewModelScope)
+   val state = getCountryDetailsUseCase(countryCode).stateAsResultIn(viewModelScope)
 }

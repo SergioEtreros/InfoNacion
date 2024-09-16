@@ -45,7 +45,9 @@ android {
 dependencies {
 
    implementation(project(":domain:country"))
+   implementation(project(":domain:region"))
    implementation(project(":framework:countries"))
+   implementation(project(":framework:region"))
    implementation(project(":framework:core"))
    implementation(project(":feature:countries"))
    implementation(project(":feature:common"))

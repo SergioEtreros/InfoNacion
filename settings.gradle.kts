@@ -32,6 +32,7 @@ rootProject.name = "InfoNacion"
 include(":app")
 
 include(":domain:country")
+include(":domain:region")
 
 include(":feature:countries")
 include(":feature:common")

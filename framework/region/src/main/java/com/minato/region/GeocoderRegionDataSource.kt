@@ -19,5 +19,4 @@ internal class GeocoderRegionDataSource @Inject constructor(
       val region = addresses.firstOrNull()?.countryCode
       return region ?: DEFAULT_REGION
    }
-
 }

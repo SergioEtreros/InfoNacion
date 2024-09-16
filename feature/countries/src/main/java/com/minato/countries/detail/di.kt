@@ -16,7 +16,7 @@ class DetailViewmodelComponent {
 
    @Provides
    @ViewModelScoped
-   @Named("countryName")
-   fun provideCountryNamed(savedStateHandle: SavedStateHandle): String =
-      savedStateHandle.toRoute<Detail>().countryName
+   @Named("countryCode")
+   fun provideCountryCode(savedStateHandle: SavedStateHandle): String =
+      savedStateHandle.toRoute<Detail>().countryCode
 }
