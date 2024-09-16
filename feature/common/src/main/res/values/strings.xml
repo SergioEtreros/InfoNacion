@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">InfoNacion</string>
+    <string name="app_name">InfoNación</string>
     <string name="back">volver</string>
+    <string name="current_location">Ubicación actual</string>
+    <string name="flag">Bandera</string>
 </resources>
