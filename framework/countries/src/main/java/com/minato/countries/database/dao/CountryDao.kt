@@ -16,17 +16,7 @@ interface CountryDao {
    fun getCountries(): Flow<List<Country>>
 
    @Transaction
-   @Query(
-      """
-      Select c.*, cu.*, l.*, t.*, tz.*, b.* from country as c
-      join currencies as cu on c.countryCode = cu.countryCode
-      join languages as l on l.countryCode = c.countryCode
-      join translations as t on t.countryCode = c.countryCode
-      join timezones as tz on tz.countryCode = c.countryCode
-      join borders as b on b.countryCode = c.countryCode
-      where c.countryCode = :countryCode
-   """
-   )
+   @Query("Select * from country where countryCode = :countryCode")
    fun getCountryByCountryCode(countryCode: String): Flow<CountryFull?>
 
    @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -10,6 +10,7 @@ import com.minato.countries.database.entities.TimeZones
 import com.minato.countries.database.entities.Translations
 
 data class CountryFull(
+
    @Embedded
    val country: Country,
 
@@ -17,29 +18,29 @@ data class CountryFull(
       parentColumn = "countryCode",
       entityColumn = "countryCode"
    )
-   val currencies: List<Currencies>,
+   val currencies: List<Currencies>?,
 
    @Relation(
       parentColumn = "countryCode",
       entityColumn = "countryCode"
    )
-   val languages: List<Languages>,
+   val languages: List<Languages>?,
 
    @Relation(
       parentColumn = "countryCode",
       entityColumn = "countryCode"
    )
-   val translations: List<Translations>,
+   val translations: List<Translations>?,
 
    @Relation(
       parentColumn = "countryCode",
       entityColumn = "countryCode"
    )
-   val timezones: List<TimeZones>,
+   val timezones: List<TimeZones>?,
 
    @Relation(
       parentColumn = "countryCode",
       entityColumn = "countryCode"
    )
-   val borders: List<Borders>
+   val borders: List<Borders>?
 )

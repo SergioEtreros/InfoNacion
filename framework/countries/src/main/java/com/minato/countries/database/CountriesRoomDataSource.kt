@@ -68,10 +68,11 @@ private fun CountryFull.toDomainCountry() = Country(
    googleMaps = country.googleMaps,
    openStreetMaps = country.openStreetMaps,
    carSide = country.carSide,
-   currencies = currencies.map { Currency(it.name, it.symbol) },
-   languages = languages.map { Languaje(it.languageCode, it.name) },
-   translations = translations.map { Translation(it.languageCode, it.official, it.common) },
-   timeZones = timezones.map { it.timeZone },
+   currencies = currencies?.map { Currency(it.name, it.symbol) } ?: emptyList(),
+   languages = languages?.map { Languaje(it.languageCode, it.name) } ?: emptyList(),
+   translations = translations?.map { Translation(it.languageCode, it.official, it.common) }
+      ?: emptyList(),
+   timeZones = timezones?.map { it.timeZone } ?: emptyList(),
 
    )
 
