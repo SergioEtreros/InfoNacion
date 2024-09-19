@@ -1,61 +1,72 @@
 package com.minato.countries.main
 
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.minato.common.ObliqueFormWithGradient
 import com.minato.common.R
 import com.minato.country.entities.Country
 
 @Composable
 fun CountryItem(country: Country, onClick: (Country) -> Unit) {
-   Card(modifier = Modifier
-      .fillMaxWidth()
-      .clickable { onClick(country) }) {
-      Row(
+
+   ObliqueFormWithGradient(
+      modifier = Modifier
+         .clipToBounds()
+         .width(160.dp)
+         .height(160.dp),
+      offSet = 30.dp,
+      cornerRadius = 20.dp,
+      onCardClick = { onClick(country) }
+   ) {
+      AsyncImage(
+         model = country.flag,
+         contentDescription = stringResource(id = R.string.flag),
+         modifier = Modifier.fillMaxSize(),
+         contentScale = ContentScale.Crop
+      )
+
+      Box(
+         modifier = Modifier
+//            .matchParentSize()
+            .alpha(0.6f)
+            .background(Color.Black)
+      )
+
+      Column(
          modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
-         verticalAlignment = Alignment.CenterVertically
+            .padding(start = 8.dp),
+         verticalArrangement = Arrangement.Center
       ) {
-         Column(modifier = Modifier.weight(1f)) {
-            Text(
-               text = country.commonName,
-               style = MaterialTheme.typography.headlineMedium,
-               fontWeight = FontWeight.Bold
+         Text(
+            text = country.commonName,
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold
 
-            )
-            Text(text = country.continent)
-         }
-         Spacer(modifier = Modifier.width(8.dp))
-         AsyncImage(
-            model = country.flag,
-            contentDescription = stringResource(id = R.string.flag),
-            modifier = Modifier
-               .clip(MaterialTheme.shapes.small)
-               .width(180.dp)
-               .height(120.dp),
-            contentScale = ContentScale.FillBounds
          )
+         Text(text = country.continent)
       }
+
+
    }
 }
 
@@ -71,7 +82,7 @@ fun CountryItemPreview() {
          region = "America",
          subregion = "America",
          continent = "America",
-         flag = "",
+         flag = "https://flagcdn.com/w320/br.png",
          independent = true,
          latitude = 0.0,
          longitude = 0.0,

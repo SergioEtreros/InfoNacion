@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CountryDao {
 
-   @Query("Select * from country")
+   @Query("Select * from country order by commonName")
    fun getCountries(): Flow<List<Country>>
 
    @Transaction
