@@ -2,10 +2,10 @@ package com.minato.common
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.ScaffoldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
@@ -23,7 +23,7 @@ fun <T> InfoNacionScaffold(
    floatingActionButtonPosition: FabPosition = FabPosition.End,
    containerColor: Color = MaterialTheme.colorScheme.background,
    contentColor: Color = contentColorFor(containerColor),
-   contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,
+   contentWindowInsets: WindowInsets = WindowInsets.statusBars,
    content: @Composable (PaddingValues, T) -> Unit
 ) {
    Scaffold(
