@@ -21,20 +21,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.minato.common.ObliqueFormWithGradient
+import com.minato.common.GradientStrokeShape
+import com.minato.common.ObliqueCustomShape
 import com.minato.common.R
 import com.minato.country.entities.Country
 
 @Composable
 fun CountryItem(country: Country, onClick: (Country) -> Unit) {
 
-   ObliqueFormWithGradient(
+   GradientStrokeShape(
       modifier = Modifier
          .clipToBounds()
          .width(160.dp)
          .height(160.dp),
-      offSet = 30.dp,
-      cornerRadius = 20.dp,
+      shape = ObliqueCustomShape(30.dp, 20.dp),
       onCardClick = { onClick(country) }
    ) {
       AsyncImage(
@@ -65,8 +65,6 @@ fun CountryItem(country: Country, onClick: (Country) -> Unit) {
          )
          Text(text = country.continent)
       }
-
-
    }
 }
 

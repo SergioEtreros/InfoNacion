@@ -19,15 +19,16 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ObliqueFormWithGradient(
+fun GradientStrokeShape(
    modifier: Modifier = Modifier,
-   offSet: Dp,
-   cornerRadius: Dp,
+//   offSet: Dp,
+//   cornerRadius: Dp,
    strokeWidth: Dp = 1.dp,
    colors: List<Color> = listOf(
       MaterialTheme.colorScheme.primary,
@@ -37,6 +38,7 @@ fun ObliqueFormWithGradient(
       MaterialTheme.colorScheme.secondary,
       MaterialTheme.colorScheme.primary,
    ),
+   shape: Shape,
    onCardClick: () -> Unit = {},
    content: @Composable () -> Unit
 ) {
@@ -55,7 +57,7 @@ fun ObliqueFormWithGradient(
       label = ""
    )
 
-   Surface(modifier = modifier, shape = ObliqueCustomShape(offSet, cornerRadius)) {
+   Surface(modifier = modifier, shape = shape) {
       Surface(
          modifier =
          Modifier
@@ -74,7 +76,7 @@ fun ObliqueFormWithGradient(
                drawContent()
             },
          color = MaterialTheme.colorScheme.background,
-         shape = ObliqueCustomShape(offSet, cornerRadius)
+         shape = shape
       ) {
          content()
 //         Box(modifier = Modifier.padding(vertical = offSet + 8.dp, horizontal = 8.dp)) { content() }

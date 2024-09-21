@@ -132,7 +132,5 @@ fun CountryDetailPreview() {
             timeZones = emptyList()
          )
       )
-   ) {
-
-   }
+   ) {}
 }
