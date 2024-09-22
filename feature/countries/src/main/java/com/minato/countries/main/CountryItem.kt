@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -54,14 +55,15 @@ fun CountryItem(country: Country, onClick: (Country) -> Unit) {
       Column(
          modifier = Modifier
             .fillMaxSize()
-            .padding(start = 8.dp),
+            .padding(horizontal = 8.dp),
          verticalArrangement = Arrangement.Center
       ) {
          Text(
             text = country.commonName,
             style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold
-
+            fontWeight = FontWeight.Bold,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis
          )
          Text(text = country.continent)
       }

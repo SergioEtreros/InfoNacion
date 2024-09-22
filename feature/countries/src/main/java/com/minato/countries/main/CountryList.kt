@@ -20,7 +20,7 @@ fun CountryList(countries: List<Country>, onClick: (Country) -> Unit) {
       columns = GridCells.Fixed(2),
       modifier = Modifier.fillMaxSize(),
       contentPadding = PaddingValues(
-         top = 0.dp,
+         top = 8.dp,
          start = 16.dp,
          end = 16.dp,
          bottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding() + 8.dp
