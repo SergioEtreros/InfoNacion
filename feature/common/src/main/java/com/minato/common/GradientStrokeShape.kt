@@ -23,6 +23,9 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.minato.common.theme.PrimaryDark
+import com.minato.common.theme.SecondaryDark
+import com.minato.common.theme.TertiaryDark
 
 @Composable
 fun GradientStrokeShape(
@@ -31,12 +34,12 @@ fun GradientStrokeShape(
 //   cornerRadius: Dp,
    strokeWidth: Dp = 1.dp,
    colors: List<Color> = listOf(
-      MaterialTheme.colorScheme.primary,
-      MaterialTheme.colorScheme.secondary,
-      MaterialTheme.colorScheme.tertiary,
-      MaterialTheme.colorScheme.tertiary,
-      MaterialTheme.colorScheme.secondary,
-      MaterialTheme.colorScheme.primary,
+      PrimaryDark,
+      SecondaryDark,
+      TertiaryDark,
+      TertiaryDark,
+      SecondaryDark,
+      PrimaryDark,
    ),
    shape: Shape,
    onCardClick: () -> Unit = {},

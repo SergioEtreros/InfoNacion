@@ -98,12 +98,14 @@ fun MainScreen(
                   ) {
                      Icon(
                         imageVector = Icons.Default.LocationOn,
-                        contentDescription = stringResource(id = R.string.current_location)
+                        contentDescription = stringResource(id = R.string.current_location),
+                        tint = MaterialTheme.colorScheme.onSurface
                      )
                   }
                }
             )
          },
+         contentColor = MaterialTheme.colorScheme.onSurface,
          containerColor = MaterialTheme.colorScheme.surface,
          contentWindowInsets = WindowInsets.statusBars
       ) { paddingValues, countries ->
