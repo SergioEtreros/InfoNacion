@@ -17,6 +17,21 @@ internal object FrameworkCoreModule {
    fun providesCountrydao(db: CountryDb) = db.countryDao()
 
    @Provides
+   fun providesCurrenciesDao(db: CountryDb) = db.currenciesDao()
+
+   @Provides
+   fun providesLanguajesDao(db: CountryDb) = db.languagesDao()
+
+   @Provides
+   fun providesTimeZonesDao(db: CountryDb) = db.timeZonesDao()
+
+   @Provides
+   fun providesTranslationDao(db: CountryDb) = db.translationsDao()
+
+   @Provides
+   fun providesBordersDao(db: CountryDb) = db.bordersDao()
+
+   @Provides
    fun provideCountryService(@Named("base_url") baseUrl: String) = CountryClient(baseUrl).instance
 }
 
