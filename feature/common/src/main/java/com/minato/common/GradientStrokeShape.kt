@@ -30,8 +30,6 @@ import com.minato.common.theme.TertiaryDark
 @Composable
 fun GradientStrokeShape(
    modifier: Modifier = Modifier,
-//   offSet: Dp,
-//   cornerRadius: Dp,
    strokeWidth: Dp = 1.dp,
    colors: List<Color> = listOf(
       PrimaryDark,
@@ -82,7 +80,6 @@ fun GradientStrokeShape(
          shape = shape
       ) {
          content()
-//         Box(modifier = Modifier.padding(vertical = offSet + 8.dp, horizontal = 8.dp)) { content() }
       }
    }
 }
