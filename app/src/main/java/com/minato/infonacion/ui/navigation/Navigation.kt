@@ -6,8 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.minato.common.Detail
 import com.minato.common.Main
-import com.minato.countries.detail.DetailScreen
-import com.minato.countries.main.MainScreen
+import com.minato.feature.countries.detail.DetailScreen
+import com.minato.feature.countries.main.MainScreen
 
 @Composable
 fun Navigation() {

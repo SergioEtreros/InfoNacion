@@ -13,7 +13,7 @@ import androidx.room.Index
       childColumns = ["countryCode"],
       onDelete = ForeignKey.CASCADE
    )],
-   indices = [Index(value = ["countryCode"])]
+   indices = [Index(value = ["countryCode"]), Index(value = ["currencyCode"])]
 )
 data class Currencies(
    val currencyCode: String,

@@ -1,4 +1,4 @@
-package com.minato.countries.detail
+package com.minato.feature.countries.detail
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.shape.RoundedCornerShape

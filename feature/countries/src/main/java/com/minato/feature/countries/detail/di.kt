@@ -1,4 +1,4 @@
-package com.minato.countries.detail
+package com.minato.feature.countries.detail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.toRoute

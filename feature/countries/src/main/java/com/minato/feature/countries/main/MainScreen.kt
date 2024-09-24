@@ -1,4 +1,4 @@
-package com.minato.countries.main
+package com.minato.feature.countries.main
 
 import android.Manifest
 import android.widget.Toast

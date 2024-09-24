@@ -1,6 +1,6 @@
 package com.minato.country.entities
 
-data class Languaje(
+data class Language(
    val languageCode: String,
    val name: String
 )

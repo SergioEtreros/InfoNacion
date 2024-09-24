@@ -1,4 +1,4 @@
-package com.minato.countries.main
+package com.minato.feature.countries.main
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -26,6 +26,7 @@ import com.minato.common.GradientStrokeShape
 import com.minato.common.ObliqueCustomShape
 import com.minato.common.R
 import com.minato.country.entities.Country
+import com.minato.feature.countries.dummyCountry
 
 @Composable
 fun CountryItem(country: Country, onClick: (Country) -> Unit) {
@@ -73,27 +74,5 @@ fun CountryItem(country: Country, onClick: (Country) -> Unit) {
 @Preview(widthDp = 400, heightDp = 200)
 @Composable
 fun CountryItemPreview() {
-   CountryItem(
-      Country(
-         countryCode = "BR",
-         commonName = "Brasil",
-         officialName = "Brasileiro",
-         capital = "Brasilia",
-         region = "America",
-         subregion = "America",
-         continent = "America",
-         flag = "https://flagcdn.com/w320/br.png",
-         independent = true,
-         latitude = 0.0,
-         longitude = 0.0,
-         population = 0,
-         googleMaps = "",
-         openStreetMaps = "",
-         carSide = "",
-         currencies = emptyList(),
-         languages = emptyList(),
-         translations = emptyList(),
-         timeZones = emptyList()
-      )
-   ) {}
+   CountryItem(dummyCountry) {}
 }

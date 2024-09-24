@@ -22,6 +22,7 @@ data class CountryItem(
    val translations: Translations,
    val latlng: List<Double>,
    val landlocked: Boolean,
+   val borders: List<String> = emptyList(),
    val area: Double,
    val demonyms: Demonyms? = null,
    val flag: String,

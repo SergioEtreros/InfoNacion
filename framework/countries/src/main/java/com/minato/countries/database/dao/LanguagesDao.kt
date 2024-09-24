@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy
 import com.minato.countries.database.entities.Languages
 
 @Dao
-interface LanguajesDao {
+interface LanguagesDao {
 
    @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun insertlanguages(languages: List<Languages>)

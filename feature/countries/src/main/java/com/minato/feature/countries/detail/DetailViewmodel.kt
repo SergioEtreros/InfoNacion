@@ -1,4 +1,4 @@
-package com.minato.countries.detail
+package com.minato.feature.countries.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

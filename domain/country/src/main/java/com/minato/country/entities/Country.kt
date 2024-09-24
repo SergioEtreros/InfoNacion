@@ -17,7 +17,8 @@ data class Country(
    val openStreetMaps: String,
    val carSide: String,
    val currencies: List<Currency>,
-   val languages: List<Languaje>,
+   val languages: List<Language>,
    val translations: List<Translation>,
    val timeZones: List<String>,
+   val borders: List<String>
 )
