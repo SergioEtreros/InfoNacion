@@ -31,6 +31,7 @@ import com.minato.common.InfoNacionScaffold
 import com.minato.common.R
 import com.minato.common.Result
 import com.minato.common.Screen
+import com.minato.common.advancedShadow
 import com.minato.common.ifSuccess
 import com.minato.common.theme.blueLinearBrushButton
 import com.minato.common.theme.blueLinearBrushShape
@@ -61,7 +62,6 @@ fun DetailScreen(
    Screen {
 
       InfoNacionScaffold(
-//         modifier = Modifier.background(blueLinearBrush, trapezoidShape),
          state = state,
          topBar = {
             state.ifSuccess {
@@ -77,6 +77,20 @@ fun DetailScreen(
                      IconButton(
                         modifier = Modifier
                            .padding(start = 20.dp)
+                           .advancedShadow(
+                              color = Color(0x802B3445),
+                              cornersRadius = 10.dp,
+                              offsetX = (-3).dp,
+                              offsetY = (-3).dp,
+                              shadowBlurRadius = 5.dp,
+                           )
+                           .advancedShadow(
+                              color = Color(0xFF10141C),
+                              cornersRadius = 10.dp,
+                              offsetX = 3.dp,
+                              offsetY = 3.dp,
+                              shadowBlurRadius = 5.dp,
+                           )
                            .background(
                               blueLinearBrushButton, RoundedCornerShape(size = 10.dp)
                            ),
@@ -115,7 +129,7 @@ fun DetailScreen(
 
 @Preview(showSystemUi = true, showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun CountryDetailPreview() {
+fun DetailScreenPreview() {
 
    DetailScreen(state = Result.Success(dummyCountry)) {}
 }
