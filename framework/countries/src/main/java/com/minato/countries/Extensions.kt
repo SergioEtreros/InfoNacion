@@ -78,7 +78,7 @@ fun CountryFull.toDomainCountry() = Country(
    translations = translations?.map { Translation(it.languageCode, it.official, it.common) }
       ?: emptyList(),
    timeZones = timezones?.map { it.timeZone } ?: emptyList(),
-   borders = borders?.map { it.countryCode } ?: emptyList()
+   borders = borders?.map { it.borderCode } ?: emptyList()
 )
 
 fun Country.toDbModel() = DatabaseCountry(
