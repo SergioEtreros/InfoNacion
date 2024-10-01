@@ -12,15 +12,36 @@ val dummyCountry = Country(
    continent = "America",
    flag = "https://flagcdn.com/w320/br.png",
    independent = true,
-   latitude = 0.0,
-   longitude = 0.0,
-   population = 0,
+   latitude = 32.5,
+   longitude = -43.0,
+   population = 4345340,
    googleMaps = "",
    openStreetMaps = "",
-   carSide = "",
+   carSide = "left",
    currencies = emptyList(),
    languages = emptyList(),
    translations = emptyList(),
    timeZones = emptyList(),
    borders = emptyList()
 )
+
+fun Int.format(): String = "%,d".format(this)
+
+fun <T> Iterable<T>.joinToLines(
+   separator: CharSequence = "\n",
+   prefix: CharSequence = "",
+   postfix: CharSequence = "",
+   limit: Int = -1,
+   truncated: CharSequence = "...",
+   transform: ((T) -> CharSequence)? = null
+): String {
+   return joinTo(
+      StringBuilder(),
+      separator,
+      prefix,
+      postfix,
+      limit,
+      truncated,
+      transform
+   ).toString()
+}

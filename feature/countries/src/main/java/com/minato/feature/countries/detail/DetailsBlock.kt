@@ -76,7 +76,7 @@ fun DetailsBlock(country: Country) {
                onClick = { active = 1 }, active = active == 1
             ) {
                Text(
-                  text = "sociales",
+                  text = "socioeconomicos",
                   style = if (active == 1) activeTextStyle else TextStyle(
                      color = (Color(
                         0x99FFFFFF
