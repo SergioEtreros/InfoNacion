@@ -20,7 +20,7 @@ import com.minato.country.entities.Country
 import com.minato.feature.countries.dummyCountry
 
 @Composable
-fun CountryDetail(country: Country) {
+fun CountryDetail(country: Country, mapButtonClicked: (url: String) -> Unit) {
    Column(
       modifier = Modifier
          .fillMaxSize(),
@@ -37,12 +37,12 @@ fun CountryDetail(country: Country) {
          contentScale = ContentScale.FillHeight
       )
 
-      DetailsBlock(country)
+      DetailsBlock(country) { url -> mapButtonClicked(url) }
    }
 }
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun CountryDetailPreview() {
-   CountryDetail(dummyCountry)
+   CountryDetail(dummyCountry) { }
 }

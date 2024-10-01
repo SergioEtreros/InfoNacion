@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,25 +25,19 @@ import androidx.compose.ui.unit.dp
 import com.minato.common.theme.blueLinearBrushText
 import com.minato.common.theme.greyLinearBrush
 import com.minato.common.theme.strokeBrush
+import com.minato.common.theme.topRoundedCornershape
 import com.minato.country.entities.Country
 import com.minato.feature.countries.dummyCountry
 
 @Composable
-fun DetailsBlock(country: Country) {
-   val shape = RoundedCornerShape(
-      topStart = 30.dp,
-      topEnd = 30.dp,
-      bottomEnd = 0.dp,
-      bottomStart = 0.dp,
-   )
-
+fun DetailsBlock(country: Country, mapButtonClicked: (url: String) -> Unit) {
    Box(
       modifier = Modifier
          .fillMaxSize()
-         .shadow(10.dp, shape)
-         .border(2.dp, strokeBrush, shape)
-         .background(greyLinearBrush, shape)
-         .padding(horizontal = 20.dp, vertical = 20.dp),
+         .shadow(10.dp, topRoundedCornershape)
+         .border(2.dp, strokeBrush, topRoundedCornershape)
+         .background(greyLinearBrush, topRoundedCornershape)
+         .padding(20.dp),
    ) {
 
       var active by remember { mutableIntStateOf(0) }
@@ -60,7 +53,7 @@ fun DetailsBlock(country: Country) {
                onClick = { active = 0 }, active = active == 0
             ) {
                Text(
-                  text = "geográficos",
+                  text = "Geográficos",
                   style = if (active == 0) activeTextStyle else TextStyle(
                      color = (Color(
                         0x99FFFFFF
@@ -76,7 +69,7 @@ fun DetailsBlock(country: Country) {
                onClick = { active = 1 }, active = active == 1
             ) {
                Text(
-                  text = "socioeconomicos",
+                  text = "Socioeconomicos",
                   style = if (active == 1) activeTextStyle else TextStyle(
                      color = (Color(
                         0x99FFFFFF
@@ -87,7 +80,7 @@ fun DetailsBlock(country: Country) {
          }
 
          when (active) {
-            0 -> GeoDetails(country)
+            0 -> GeoDetails(country) { url -> mapButtonClicked(url) }
             1 -> EcoSocialDetails(country)
          }
       }
@@ -97,5 +90,5 @@ fun DetailsBlock(country: Country) {
 @Preview
 @Composable
 fun DetailsBlockPreview() {
-   DetailsBlock(country = dummyCountry)
+   DetailsBlock(country = dummyCountry) {}
 }

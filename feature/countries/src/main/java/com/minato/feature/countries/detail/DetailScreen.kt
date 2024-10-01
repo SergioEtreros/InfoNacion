@@ -39,6 +39,7 @@ fun DetailScreen(
 
    DetailScreen(
       state = state,
+      mapButtonClicked = model::openMap,
       onBack = onBack
    )
 }
@@ -47,6 +48,7 @@ fun DetailScreen(
 @Composable
 fun DetailScreen(
    state: Result<Country>,
+   mapButtonClicked: (url: String) -> Unit,
    onBack: () -> Unit
 ) {
    Screen {
@@ -79,7 +81,7 @@ fun DetailScreen(
                .background(blueLinearBrushShape, trapezoidShape)
                .padding(paddingValues)
          ) {
-            CountryDetail(country)
+            CountryDetail(country) { url -> mapButtonClicked(url) }
          }
       }
    }
@@ -89,7 +91,11 @@ fun DetailScreen(
 @Composable
 fun DetailScreenPreview() {
 
-   DetailScreen(state = Result.Success(dummyCountry)) {}
+   DetailScreen(
+      state = Result.Success(dummyCountry),
+      mapButtonClicked = {},
+      onBack = {}
+   )
 }
 
 

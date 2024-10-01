@@ -24,7 +24,7 @@ fun EcoSocialDetails(country: Country) {
    ) {
       InfoDataItem(title = "Population", info = country.population.format())
 
-      val currencies = country.currencies.joinToLines { "${it.name} - ${it.symbol}" }
+      val currencies = country.currencies.joinToLines { "${it.name} - Symbol: ${it.symbol}" }
       InfoDataItem(title = "Currencies", info = currencies)
 
       val languajes = country.languages.joinToLines { it.name }

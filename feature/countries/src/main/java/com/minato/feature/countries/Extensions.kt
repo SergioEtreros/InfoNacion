@@ -1,6 +1,7 @@
 package com.minato.feature.countries
 
 import com.minato.country.entities.Country
+import kotlin.math.roundToInt
 
 val dummyCountry = Country(
    countryCode = "BR",
@@ -45,3 +46,5 @@ fun <T> Iterable<T>.joinToLines(
       transform
    ).toString()
 }
+
+fun Double.to2Decimal() = (this * 100).roundToInt() / 100.0

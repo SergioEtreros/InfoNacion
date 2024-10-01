@@ -15,4 +15,8 @@ class DetailViewmodel @Inject constructor(
 ) : ViewModel() {
 
    val state = getCountryDetailsUseCase(countryCode).stateAsResultIn(viewModelScope)
+
+   fun openMap(url: String) {
+
+   }
 }
