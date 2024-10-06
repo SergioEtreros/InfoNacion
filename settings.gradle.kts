@@ -1,11 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":framework:region")
-
-
-include(":domain:region")
-
-
 pluginManagement {
    includeBuild("build-logic")
    repositories {
@@ -33,11 +27,14 @@ include(":app")
 
 include(":domain:country")
 include(":domain:region")
+include(":domain:map")
 
-include(":feature:countries")
 include(":feature:common")
+include(":feature:countries")
 
 include(":framework:core")
 include(":framework:countries")
+include(":framework:region")
+include(":framework:map")
 
 include(":test:unit")

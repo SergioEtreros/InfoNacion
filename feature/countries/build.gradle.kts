@@ -10,4 +10,5 @@ android {
 dependencies {
    implementation(project(":domain:country"))
    implementation(project(":domain:region"))
+   implementation(project(":domain:map"))
 }

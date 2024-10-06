@@ -46,8 +46,10 @@ dependencies {
 
    implementation(project(":domain:country"))
    implementation(project(":domain:region"))
+   implementation(project(":domain:map"))
    implementation(project(":framework:countries"))
    implementation(project(":framework:region"))
+   implementation(project(":framework:map"))
    implementation(project(":framework:core"))
    implementation(project(":feature:countries"))
    implementation(project(":feature:common"))

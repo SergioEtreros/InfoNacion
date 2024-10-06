@@ -65,7 +65,7 @@ fun GeoDetails(country: Country, mapButtonClicked: (url: String) -> Unit) {
          modifier = Modifier
             .fillWidthOfParent(20.dp)
             .border(2.dp, strokeBrush, topRoundedCornershape)
-            .padding(top = 20.dp, bottom = 8.dp, start = 20.dp, end = 20.dp)
+            .padding(20.dp)
       ) {
          MapLinkButton(
             modifier = Modifier.weight(1f),

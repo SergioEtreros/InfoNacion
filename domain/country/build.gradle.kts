@@ -9,6 +9,6 @@ java {
 }
 
 dependencies {
-   implementation(project(":domain:region"))
+//   implementation(project(":domain:region"))
    testImplementation((project(":test:unit")))
 }
