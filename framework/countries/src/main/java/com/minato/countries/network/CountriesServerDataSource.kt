@@ -9,8 +9,13 @@ internal class CountriesServerDataSource @Inject constructor(
    private val countryService: CountryService
 ) : CountryRemoteDataSource {
    override suspend fun getCountries(): List<Country> {
-      val response = countryService.getCountries()
-      return response.map { it.toDomainCountry() }
+      try {
+         val response = countryService.getCountries()
+         return response.map { it.toDomainCountry() }
+      } catch (e: Exception) {
+         e.printStackTrace()
+         return emptyList()
+      }
    }
 
    override suspend fun getCountryByCountryCode(countryCode: String): Country =
