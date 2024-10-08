@@ -1,12 +1,10 @@
 package com.minato.countries.network.model
 
-import android.annotation.SuppressLint
 import com.minato.countries.network.CurrencySerializer
 import com.minato.countries.network.LanguageSerializer
 import com.minato.countries.network.TranslationSerializer
 import kotlinx.serialization.Serializable
 
-@SuppressLint("UnsafeOptInUsageError")
 @Serializable
 data class CountryItem(
    val name: Name,

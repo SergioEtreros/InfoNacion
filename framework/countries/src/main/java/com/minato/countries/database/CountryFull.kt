@@ -40,7 +40,22 @@ data class CountryFull(
 
    @Relation(
       parentColumn = "countryCode",
-      entityColumn = "countryCode"
+      entityColumn = "countryCode",
+      entity = Borders::class,
    )
-   val borders: List<Borders>?
+   val bordersNames: List<BordersNames>?
+)
+
+data class BordersNames(
+
+   @Embedded
+   val borders: Borders,
+
+   @Relation(
+      parentColumn = "borderCode",
+      entityColumn = "countryCode",
+      entity = Country::class,
+      projection = ["commonName"]
+   )
+   val country: String
 )
