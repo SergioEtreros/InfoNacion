@@ -53,7 +53,7 @@ data class BordersNames(
 
    @Relation(
       parentColumn = "borderCode",
-      entityColumn = "countryCode",
+      entityColumn = "cca3",
       entity = Country::class,
       projection = ["commonName"]
    )

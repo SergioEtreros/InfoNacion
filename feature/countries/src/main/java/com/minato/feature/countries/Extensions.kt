@@ -5,6 +5,7 @@ import kotlin.math.roundToInt
 
 val dummyCountry = Country(
    countryCode = "BR",
+   cca3 = "BRA",
    commonName = "Brasil",
    officialName = "Brasileiro",
    capital = "Brasilia",

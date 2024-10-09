@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 data class Country(
    @PrimaryKey
    val countryCode: String,
+   val cca3: String,
    val commonName: String,
    val officialName: String,
    val capital: String,

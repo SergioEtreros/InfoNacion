@@ -2,6 +2,7 @@ package com.minato.country.entities
 
 data class Country(
    val countryCode: String,
+   val cca3: String,
    val commonName: String,
    val officialName: String,
    val capital: String,

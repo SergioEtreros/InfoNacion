@@ -36,6 +36,7 @@ fun Translation.toDbModel(countryCode: String) = DatabaseTranslations(
 
 fun DatabaseCountry.toDomainCountry() = Country(
    countryCode = countryCode,
+   cca3 = cca3,
    commonName = commonName,
    officialName = officialName,
    capital = capital,
@@ -59,6 +60,7 @@ fun DatabaseCountry.toDomainCountry() = Country(
 
 fun CountryFull.toDomainCountry() = Country(
    countryCode = country.countryCode,
+   cca3 = country.cca3,
    commonName = country.commonName,
    officialName = country.officialName,
    capital = country.capital,
@@ -83,6 +85,7 @@ fun CountryFull.toDomainCountry() = Country(
 
 fun Country.toDbModel() = DatabaseCountry(
    countryCode = countryCode,
+   cca3 = cca3,
    commonName = commonName,
    officialName = officialName,
    capital = capital,
@@ -100,7 +103,8 @@ fun Country.toDbModel() = DatabaseCountry(
 )
 
 fun CountryItem.toDomainCountry() = Country(
-   countryCode = cca3,
+   countryCode = cca2,
+   cca3 = cca3,
    commonName = name.common,
    officialName = name.official,
    capital = capital.firstOrNull() ?: "",
