@@ -18,10 +18,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.minato.common.R
 import com.minato.common.theme.blueLinearBrushText
 import com.minato.common.theme.greyLinearBrush
 import com.minato.common.theme.strokeBrush
@@ -53,7 +55,7 @@ fun DetailsBlock(country: Country, mapButtonClicked: (url: String) -> Unit) {
                onClick = { active = 0 }, active = active == 0
             ) {
                Text(
-                  text = "Geográficos",
+                  text = stringResource(R.string.geographical),
                   style = if (active == 0) activeTextStyle else TextStyle(
                      color = (Color(
                         0x99FFFFFF
@@ -69,7 +71,7 @@ fun DetailsBlock(country: Country, mapButtonClicked: (url: String) -> Unit) {
                onClick = { active = 1 }, active = active == 1
             ) {
                Text(
-                  text = "Socioeconomicos",
+                  text = stringResource(R.string.socioeconomic),
                   style = if (active == 1) activeTextStyle else TextStyle(
                      color = (Color(
                         0x99FFFFFF

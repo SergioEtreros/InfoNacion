@@ -36,28 +36,6 @@ fun InfoDataItem(title: String, info: String) {
          fontSize = 15.sp,
       )
    }
-
-//   Row(
-//      modifier = Modifier
-//         .fillMaxWidth()
-//         .padding(top = 16.dp)
-//   ) {
-//      Text(
-//         fontWeight = FontWeight.Bold,
-//         color = Color.White,
-//         fontSize = 17.sp,
-//         text = "$title:"
-//      )
-//
-//      Spacer(modifier = Modifier.width(8.dp))
-//
-//      val locale = Locale.current
-//      Text(
-//         text = info.capitalize(locale).takeIf { it.isNotBlank() } ?: "N/A",
-//         color = Color(0x99FFFFFF),
-//         fontSize = 15.sp,
-//      )
-//   }
 }
 
 @Preview(showBackground = true)

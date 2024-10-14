@@ -48,7 +48,6 @@ fun CountryItem(country: Country, onClick: (Country) -> Unit) {
 
       Box(
          modifier = Modifier
-//            .matchParentSize()
             .alpha(0.6f)
             .background(Color.Black)
       )

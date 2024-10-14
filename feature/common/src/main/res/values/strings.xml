@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">InfoNación</string>
-    <string name="back">volver</string>
-    <string name="current_location">Ubicación actual</string>
-    <string name="flag">Bandera</string>
+    <string name="app_name" translatable="false">InfoNación</string>
+    <string name="back">Back</string>
+    <string name="current_location">Current location</string>
+    <string name="flag">Flag</string>
+    <string name="geographical">Geographical</string>
+    <string name="socioeconomic">Social/Economic</string>
+    <string name="population">Population</string>
+    <string name="currencies">Currencies</string>
+    <string name="languages">Languages</string>
+    <string name="currency_symbol">Symbol</string>
+    <string name="car_side">Car Side</string>
+    <string name="independient">Independent</string>
+    <string name="continent">Continent</string>
+    <string name="region">Region</string>
+    <string name="subregion">Subregion</string>
+    <string name="capital">Capital</string>
+    <string name="borders">Borders</string>
+    <string name="coordinates">Coordinates</string>
+    <string name="latitude">Latitude</string>
+    <string name="timezones">Timezones</string>
+    <string name="translations">Translations</string>
+    <string name="longitude">Longitude</string>
+    <string name="google_maps" translatable="false">Google Maps</string>
+    <string name="openstreet_maps" translatable="false">OpenStreet Maps</string>
 </resources>

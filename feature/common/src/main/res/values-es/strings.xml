@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back">volver</string>
+    <string name="current_location">Ubicación actual</string>
+    <string name="flag">Bandera</string>
+    <string name="geographical">Geográficos</string>
+    <string name="socioeconomic">Social/Económicos</string>
+    <string name="population">Población</string>
+    <string name="currencies">Monedas</string>
+    <string name="languages">Idiomas</string>
+    <string name="currency_symbol">Símbolo</string>
+    <string name="car_side">Lado de Conducción</string>
+    <string name="independient">Independiente</string>
+    <string name="continent">Continente</string>
+    <string name="region">Región</string>
+    <string name="subregion">Subregión</string>
+    <string name="capital">Capital</string>
+    <string name="borders">Fronteras</string>
+    <string name="coordinates">Coordenadas</string>
+    <string name="latitude">Latitud</string>
+    <string name="translations">Traducciones</string>
+    <string name="longitude">Longitud</string>
+    <string name="timezones">Zonas Horarias</string>
+</resources>

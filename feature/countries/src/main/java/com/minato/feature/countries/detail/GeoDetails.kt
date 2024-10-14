@@ -14,10 +14,12 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layout
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.minato.common.MapLinkButton
+import com.minato.common.R
 import com.minato.common.theme.strokeBrush
 import com.minato.common.theme.topRoundedCornershape
 import com.minato.country.entities.Country
@@ -40,21 +42,29 @@ fun GeoDetails(country: Country, mapButtonClicked: (url: String) -> Unit) {
                .fillMaxSize()
                .verticalScroll(rememberScrollState())
          ) {
-            InfoDataItem(title = "Continent", info = country.continent)
-            InfoDataItem(title = "Region", info = country.region)
-            InfoDataItem(title = "Subregion", info = country.subregion)
-            InfoDataItem(title = "Capital", info = country.capital)
-
-            InfoDataItem(title = "Borders", info = country.borders.joinToLines { it })
+            InfoDataItem(title = stringResource(R.string.continent), info = country.continent)
+            InfoDataItem(title = stringResource(R.string.region), info = country.region)
+            InfoDataItem(title = stringResource(R.string.subregion), info = country.subregion)
+            InfoDataItem(title = stringResource(R.string.capital), info = country.capital)
 
             InfoDataItem(
-               title = "Coordinates",
-               info = "Latitude: ${country.latitude.to2Decimal()} - Longitude: ${country.longitude.to2Decimal()}"
+               title = stringResource(R.string.borders),
+               info = country.borders.joinToLines { it })
+
+            InfoDataItem(
+               title = stringResource(R.string.coordinates),
+               info = "${stringResource(R.string.latitude)}: ${country.latitude.to2Decimal()} - ${
+                  stringResource(
+                     R.string.longitude
+                  )
+               }: ${country.longitude.to2Decimal()}"
             )
-            InfoDataItem(title = "Timezones", info = country.timeZones.joinToLines { it })
+            InfoDataItem(
+               title = stringResource(R.string.timezones),
+               info = country.timeZones.joinToLines { it })
 
             InfoDataItem(
-               title = "Translations",
+               title = stringResource(R.string.translations),
                info = country.translations.joinToLines { it.official })
          }
       }
@@ -69,14 +79,14 @@ fun GeoDetails(country: Country, mapButtonClicked: (url: String) -> Unit) {
       ) {
          MapLinkButton(
             modifier = Modifier.weight(1f),
-            text = "Google Maps"
+            text = stringResource(R.string.google_maps)
          ) { mapButtonClicked(country.googleMaps) }
 
          Spacer(modifier = Modifier.width(16.dp))
 
          MapLinkButton(
             modifier = Modifier.weight(1f),
-            text = "OpenStreetMaps"
+            text = stringResource(R.string.openstreet_maps)
          ) { mapButtonClicked(country.openStreetMaps) }
       }
    }

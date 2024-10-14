@@ -7,8 +7,10 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.minato.common.R
 import com.minato.country.entities.Country
 import com.minato.feature.countries.dummyCountry
 import com.minato.feature.countries.format
@@ -22,16 +24,20 @@ fun EcoSocialDetails(country: Country) {
          .verticalScroll(rememberScrollState())
          .padding(top = 8.dp)
    ) {
-      InfoDataItem(title = "Population", info = country.population.format())
+      InfoDataItem(title = stringResource(R.string.population), info = country.population.format())
 
-      val currencies = country.currencies.joinToLines { "${it.name} - Symbol: ${it.symbol}" }
-      InfoDataItem(title = "Currencies", info = currencies)
+      val symbolRes = stringResource(R.string.currency_symbol)
+      val currencies = country.currencies.joinToLines { "${it.name} - $symbolRes: ${it.symbol}" }
+      InfoDataItem(title = stringResource(R.string.currencies), info = currencies)
 
       val languajes = country.languages.joinToLines { it.name }
-      InfoDataItem(title = "Languages", info = languajes)
+      InfoDataItem(title = stringResource(R.string.languages), info = languajes)
 
-      InfoDataItem(title = "Car Side", info = country.carSide)
-      InfoDataItem(title = "Independent", info = country.independent.toString())
+      InfoDataItem(title = stringResource(R.string.car_side), info = country.carSide)
+      InfoDataItem(
+         title = stringResource(R.string.independient),
+         info = country.independent.toString()
+      )
    }
 }
 
