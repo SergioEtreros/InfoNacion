@@ -1,4 +1,4 @@
-package com.minato.test.country
+package com.minato.test.country.usecases
 
 import com.minato.country.usecases.GetCountryDetailsUseCase
 import com.minato.unit.sampleCountry
