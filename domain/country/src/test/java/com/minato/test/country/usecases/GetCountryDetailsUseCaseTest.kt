@@ -1,7 +1,7 @@
 package com.minato.test.country.usecases
 
 import com.minato.country.usecases.GetCountryDetailsUseCase
-import com.minato.unit.sampleCountry
+import com.minato.unit.domain.country.sampleCountry
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.flowOf
 import org.junit.Test

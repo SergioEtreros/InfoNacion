@@ -1,4 +1,4 @@
-package com.minato.unit
+package com.minato.unit.domain.country
 
 import com.minato.country.entities.Country
 

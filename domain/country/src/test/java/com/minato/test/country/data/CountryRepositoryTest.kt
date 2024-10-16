@@ -4,7 +4,7 @@ import com.minato.country.data.CountryLocalDataSource
 import com.minato.country.data.CountryRemoteDataSource
 import com.minato.country.data.CountryRepository
 import com.minato.country.entities.Country
-import com.minato.unit.sampleCountries
+import com.minato.unit.domain.country.sampleCountries
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
