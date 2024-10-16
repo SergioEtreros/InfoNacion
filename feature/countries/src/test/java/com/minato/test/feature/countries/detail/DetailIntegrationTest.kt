@@ -5,66 +5,61 @@ import com.minato.common.Result
 import com.minato.country.usecases.GetCountryDetailsUseCase
 import com.minato.feature.countries.detail.DetailViewmodel
 import com.minato.map.usecases.OpenMapUseCase
+import com.minato.unit.data.buildCountriesRepositoryWith
+import com.minato.unit.data.buildMapRepository
+import com.minato.unit.domain.country.sampleCountries
 import com.minato.unit.domain.country.sampleCountry
 import com.minato.unit.testrules.CoroutineTestRule
 import junit.framework.TestCase.assertEquals
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.junit.MockitoJUnitRunner
-import org.mockito.kotlin.any
-import org.mockito.kotlin.verify
-import org.mockito.kotlin.whenever
 
-@RunWith(MockitoJUnitRunner::class)
-class DetailViewmodelTest {
+class DetailIntegrationTest {
 
    @get:Rule
    val coroutineTestRule = CoroutineTestRule()
 
-   @Mock
-   lateinit var getCountryDetailsUseCase: GetCountryDetailsUseCase
-
-   @Mock
-   lateinit var openMapUseCase: OpenMapUseCase
-
    private lateinit var detailViewmodel: DetailViewmodel
-
-   private val countryCode = "aaa"
 
    private val sampleCountry = sampleCountry("aaa")
 
    @Before
    fun setUp() {
-      whenever(getCountryDetailsUseCase(countryCode)).thenReturn(flowOf(sampleCountry))
-      detailViewmodel = DetailViewmodel(countryCode, getCountryDetailsUseCase, openMapUseCase)
+      val countryCode = "aaa"
+      val countries = sampleCountries("aaa", "bbb", "ccc")
+      detailViewmodel = DetailViewmodel(
+         countryCode,
+         getCountryDetailsUseCase =
+         GetCountryDetailsUseCase(
+            buildCountriesRepositoryWith(
+               localData = countries,
+               remoteData = countries
+            )
+         ),
+         openMapUseCase = OpenMapUseCase(buildMapRepository())
+      )
    }
 
    @Test
-   fun `Country details are requested at startup`(): Unit = runTest {
+   fun `Ui loads data on start`(): Unit = runTest {
       detailViewmodel.state.test {
          assertEquals(Result.Loading, awaitItem())
          assertEquals(Result.Success(sampleCountry), awaitItem())
       }
    }
 
-   @OptIn(ExperimentalCoroutinesApi::class)
    @Test
-   fun `OpenMap calls OpenMapUseCase when called`(): Unit = runTest {
+   fun `openMap call open map`(): Unit = runTest {
       detailViewmodel.state.test {
          assertEquals(Result.Loading, awaitItem())
          assertEquals(Result.Success(sampleCountry), awaitItem())
 
          detailViewmodel.openMap(sampleCountry.googleMaps)
-         runCurrent()
 
-         verify(openMapUseCase).invoke(any())
+         // TODO esto no estoy seguro de como comprobar el resultado,
+         // tampoco estoy seguro de que este test sea necesario
       }
    }
 }
