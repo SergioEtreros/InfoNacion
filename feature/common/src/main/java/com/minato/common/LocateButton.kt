@@ -10,9 +10,12 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.minato.common.theme.blueLinearBrushButton
+
+const val LOCATION_BUTTON_TEST_TAG = "LocationButton"
 
 @Composable
 fun LocateButton(onLocationClick: () -> Unit) {
@@ -21,6 +24,7 @@ fun LocateButton(onLocationClick: () -> Unit) {
          .padding(
             end = 12.dp
          )
+         .testTag(LOCATION_BUTTON_TEST_TAG)
          .background(
             blueLinearBrushButton, RoundedCornerShape(size = 10.dp)
          ),
