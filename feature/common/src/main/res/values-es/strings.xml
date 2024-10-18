@@ -21,4 +21,6 @@
     <string name="translations">Traducciones</string>
     <string name="longitude">Longitud</string>
     <string name="timezones">Zonas Horarias</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
 </resources>
