@@ -23,4 +23,6 @@
     <string name="timezones">Zonas Horarias</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
+    <string name="right_side">Derecha</string>
+    <string name="left_side">Izquierda</string>
 </resources>

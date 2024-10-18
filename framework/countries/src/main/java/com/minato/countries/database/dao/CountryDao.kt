@@ -19,6 +19,9 @@ interface CountryDao {
    @Query("Select * from country where countryCode = :countryCode")
    fun getCountryByCountryCode(countryCode: String): Flow<CountryFull?>
 
+   @Query("Select count(*) from country")
+   suspend fun count(): Int
+
    @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun insertCountry(country: Country)
 

@@ -26,4 +26,7 @@
     <string name="openstreet_maps" translatable="false">OpenStreet Maps</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="n_a" translatable="false">N/A</string>
+    <string name="right_side">Right</string>
+    <string name="left_side">Left</string>
 </resources>

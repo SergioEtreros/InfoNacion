@@ -37,7 +37,7 @@ internal object FrameworkCoreModule {
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal object FrameworkExtrasModule {
+object FrameworkExtrasModule {
 
    @Provides
    @Singleton

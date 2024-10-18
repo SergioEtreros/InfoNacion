@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.android
+
 plugins {
    alias(libs.plugins.kotlin.serialization)
    alias(libs.plugins.google.devtools.ksp)
@@ -14,7 +16,7 @@ android {
       versionCode = 1
       versionName = "1.0"
 
-      testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+      testInstrumentationRunner = "com.minato.infonacion.di.HiltTestRunner"
       vectorDrawables {
          useSupportLibrary = true
       }
@@ -54,19 +56,17 @@ dependencies {
    implementation(project(":feature:countries"))
    implementation(project(":feature:common"))
 
-   implementation(libs.androidx.core.ktx)
-   implementation(libs.androidx.lifecycle.runtime.ktx)
    implementation(libs.androidx.activity.compose)
-   implementation(platform(libs.androidx.compose.bom))
-   implementation(libs.androidx.ui)
-   implementation(libs.androidx.ui.graphics)
-   implementation(libs.androidx.ui.tooling.preview)
-   implementation(libs.androidx.material3)
-   testImplementation(libs.junit)
-   androidTestImplementation(libs.androidx.junit)
-   androidTestImplementation(libs.androidx.espresso.core)
+
    androidTestImplementation(platform(libs.androidx.compose.bom))
+   androidTestImplementation(libs.androidx.junit)
+   androidTestImplementation(libs.androidx.test.core)
+   androidTestImplementation(libs.androidx.test.rules)
+   androidTestImplementation(libs.androidx.espresso.core)
    androidTestImplementation(libs.androidx.ui.test.junit4)
-   debugImplementation(libs.androidx.ui.tooling)
-   debugImplementation(libs.androidx.ui.test.manifest)
+   androidTestImplementation(libs.hilt.android.testing)
+   kspAndroidTest(libs.hilt.compiler)
+   androidTestImplementation(libs.room.ktx)
+   kspAndroidTest(libs.room.compiler)
+   androidTestImplementation(libs.okhttp.mockwebserver)
 }
