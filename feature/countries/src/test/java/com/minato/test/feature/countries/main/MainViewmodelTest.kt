@@ -81,11 +81,8 @@ class MainViewmodelTest {
 
       mainViewmodel = MainViewmodel(getCountriesListUseCase, getLastRegionUseCase)
 
-      //TODO porqué funciona de las dos maneras
-
       mainViewmodel.state.test {
          assertEquals(Result.Loading, awaitItem())
-//         assertEquals(Result.Error(error), awaitItem())
          val exceptionMessage = (awaitItem() as Result.Error).throwable.message
          assertEquals("Something went wrong", exceptionMessage)
       }

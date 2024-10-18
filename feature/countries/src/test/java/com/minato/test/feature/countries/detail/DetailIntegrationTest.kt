@@ -49,17 +49,4 @@ class DetailIntegrationTest {
          assertEquals(Result.Success(sampleCountry), awaitItem())
       }
    }
-
-   @Test
-   fun `openMap call open map`(): Unit = runTest {
-      detailViewmodel.state.test {
-         assertEquals(Result.Loading, awaitItem())
-         assertEquals(Result.Success(sampleCountry), awaitItem())
-
-         detailViewmodel.openMap(sampleCountry.googleMaps)
-
-         // TODO esto no estoy seguro de como comprobar el resultado,
-         // tampoco estoy seguro de que este test sea necesario
-      }
-   }
 }

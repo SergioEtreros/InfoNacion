@@ -14,7 +14,7 @@ import com.minato.unit.domain.country.sampleCountries
 import com.minato.unit.testrules.CoroutineTestRule
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runCurrent
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
@@ -58,14 +58,10 @@ class MainIntegrationTest {
          assertEquals(Result.Loading, awaitItem())
          assertEquals(Result.Success(localData), awaitItem())
          mainViewmodel.getActualCountry { obtainedCountry = it }
-
-         runCurrent()
-//         advanceUntilIdle()
-
-         // TODO he seguido el código y aparentemente guara bien el valor en obtainedCountry,
-         //  pero al comparar siempre tiene null
-         assertEquals(localData.first(), obtainedCountry)
       }
+
+      advanceUntilIdle()
+      assertEquals(localData.first(), obtainedCountry)
    }
 
    private fun buildViewmodelWith(

@@ -4,7 +4,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.minato.common.innerShadow
 import com.minato.common.px
 
 val PrimaryLight = Color(0xFFC3F4DB)
