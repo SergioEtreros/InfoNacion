@@ -1,25 +1,24 @@
 [versions]
-agp = "8.7.1"
-kotlin = "2.0.0"
-coreKtx = "1.13.1"
+agp = "8.9.1"
+kotlin = "2.1.20"
+coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.6"
-activityCompose = "1.9.2"
-composeBom = "2024.09.03"
-coil = "2.6.0"
-navigationCompose = "2.8.2"
+lifecycleRuntimeKtx = "2.8.7"
+activityCompose = "1.10.1"
+composeBom = "2025.03.01"
+coil = "2.7.0"
+navigationCompose = "2.8.9"
 retrofit = "2.11.0"
-kotlinxSerialization = "1.7.0"
-ksp = "2.0.0-1.0.21"
+kotlinxSerialization = "1.8.0"
+ksp = "2.1.20-1.0.32"
 room = "2.6.1"
-jetbrainsKotlinJvm = "2.0.0"
 appcompat = "1.7.0"
 material = "1.12.0"
-coroutines = "1.8.1"
+coroutines = "1.10.1"
 okhttp = "4.12.0"
-hilt = "2.51.1"
+hilt = "2.55"
 hiltNavigationCompose = "1.2.0"
 mockitoKotlin = "5.3.1"
 turbine = "1.1.0"
@@ -81,7 +80,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-Serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
