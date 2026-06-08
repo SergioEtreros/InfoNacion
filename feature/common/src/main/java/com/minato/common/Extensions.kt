@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.nativePaint
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
@@ -134,7 +135,7 @@ fun Modifier.advancedShadow(
 
    drawIntoCanvas {
       val paint = Paint()
-      val frameworkPaint = paint.asFrameworkPaint()
+      val frameworkPaint = paint.nativePaint
       frameworkPaint.color = transparentColor
       frameworkPaint.setShadowLayer(
          shadowBlurRadius.toPx(),
@@ -177,7 +178,7 @@ fun Modifier.innerShadow(
       canvas.saveLayer(size.toRect(), paint)
       canvas.drawOutline(shadowOutline, paint)
 
-      paint.asFrameworkPaint().apply {
+      paint.nativePaint.apply {
          xfermode = PorterDuffXfermode(PorterDuff.Mode.DST_OUT)
          if (blur.toPx() > 0) {
             maskFilter = BlurMaskFilter(blur.toPx(), BlurMaskFilter.Blur.NORMAL)

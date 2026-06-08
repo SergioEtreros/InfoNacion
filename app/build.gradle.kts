@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.android
-
 plugins {
    alias(libs.plugins.kotlin.serialization)
    alias(libs.plugins.google.devtools.ksp)
@@ -24,7 +22,8 @@ android {
 
    buildTypes {
       release {
-         isMinifyEnabled = false
+         isMinifyEnabled = true
+         isShrinkResources = true
          proguardFiles(
             getDefaultProguardFile("proguard-android-optimize.txt"),
             "proguard-rules.pro"
@@ -37,10 +36,6 @@ android {
       resources {
          excludes += "/META-INF/{AL2.0,LGPL2.1}"
       }
-   }
-
-   composeCompiler {
-      enableStrongSkippingMode = true
    }
 }
 

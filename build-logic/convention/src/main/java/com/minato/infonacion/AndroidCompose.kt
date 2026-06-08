@@ -1,16 +1,17 @@
 package com.minato.infonacion
 
-import com.android.build.api.dsl.CommonExtension
+import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
 
 internal fun Project.configureAndroidCompose(
-   commonExtension: CommonExtension<*, *, *, *, *, *>,
+   applicationExtension: ApplicationExtension,
 ) {
    pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
 
-   commonExtension.apply {
+   applicationExtension.apply {
       buildFeatures {
          compose = true
       }
@@ -24,6 +25,33 @@ internal fun Project.configureAndroidCompose(
       add("implementation", libs.findLibrary("androidx.ui.tooling.preview").get())
       add("implementation", libs.findLibrary("androidx.material3").get())
       add("implementation", libs.findLibrary("coil.compose").get())
+      add("implementation", libs.findLibrary("coil.svg").get())
+      add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
+      add("implementation", libs.findLibrary("navigation.compose").get())
+      add("debugImplementation", libs.findLibrary("androidx.ui.tooling").get())
+   }
+}
+
+internal fun Project.configureAndroidCompose(
+   libraryExtension: LibraryExtension,
+) {
+   pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
+
+   libraryExtension.apply {
+      buildFeatures {
+         compose = true
+      }
+   }
+
+   dependencies {
+      val composeBom = libs.findLibrary("androidx.compose.bom").get()
+      add("implementation", platform(composeBom))
+      add("implementation", libs.findLibrary("androidx.ui").get())
+      add("implementation", libs.findLibrary("androidx.ui.graphics").get())
+      add("implementation", libs.findLibrary("androidx.ui.tooling.preview").get())
+      add("implementation", libs.findLibrary("androidx.material3").get())
+      add("implementation", libs.findLibrary("coil.compose").get())
+      add("implementation", libs.findLibrary("coil.svg").get())
       add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
       add("implementation", libs.findLibrary("navigation.compose").get())
       add("debugImplementation", libs.findLibrary("androidx.ui.tooling").get())

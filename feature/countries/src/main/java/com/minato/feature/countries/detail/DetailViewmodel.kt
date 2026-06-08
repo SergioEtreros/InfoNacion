@@ -12,7 +12,7 @@ import javax.inject.Named
 
 @HiltViewModel
 class DetailViewmodel @Inject constructor(
-   @Named("countryCode") private val countryCode: String,
+   @param:Named("countryCode") private val countryCode: String,
    getCountryDetailsUseCase: GetCountryDetailsUseCase,
    private val openMapUseCase: OpenMapUseCase
 ) : ViewModel() {

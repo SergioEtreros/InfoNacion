@@ -24,7 +24,7 @@ fun DetailButton(
 ) {
 
    val shape = RoundedCornerShape(10.dp)
-   val shadowModifier = if (active) {
+   val shadowModifier = if (!active) {
       modifier
          .advancedShadow(
             color = sombraExteriorBoton1,

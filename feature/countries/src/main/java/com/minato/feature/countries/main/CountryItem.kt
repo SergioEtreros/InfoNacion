@@ -16,12 +16,15 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import coil.decode.SvgDecoder
+import coil.request.ImageRequest
 import com.minato.common.GradientStrokeShape
 import com.minato.common.ObliqueCustomShape
 import com.minato.common.R
@@ -40,7 +43,11 @@ fun CountryItem(country: Country, onClick: (Country) -> Unit) {
       onCardClick = { onClick(country) }
    ) {
       AsyncImage(
-         model = country.flag,
+//         model = country.flag,
+         ImageRequest.Builder(LocalContext.current)
+            .data(country.flag)
+            .decoderFactory(SvgDecoder.Factory())
+            .build(),
          contentDescription = stringResource(id = R.string.flag),
          modifier = Modifier.fillMaxSize(),
          contentScale = ContentScale.Crop
