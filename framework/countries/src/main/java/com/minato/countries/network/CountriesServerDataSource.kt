@@ -11,6 +11,7 @@ internal class CountriesServerDataSource @Inject constructor(
    override suspend fun getCountries(): List<Country> {
       try {
          val response = countryService.getCountries()
+         print (response)
          return response.map { it.toDomainCountry() }
       } catch (e: Exception) {
          e.printStackTrace()

@@ -47,5 +47,5 @@ object FrameworkExtrasModule {
    @Provides
    @Singleton
    @Named("base_url")
-   fun provideBaseUrl() = "https://restcountries.com/v3.1/"
+   fun provideBaseUrl() = "https://api.restcountries.com/countries/v5"
 }
