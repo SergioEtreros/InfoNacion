@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
    id("infonacion.android.library")
    id("infonacion.android.room")
@@ -9,6 +11,10 @@ android {
    namespace = "com.minato.core"
 
    defaultConfig {
+      val properties = Properties()
+      properties.load(project.rootProject.file("local.properties").readText().byteInputStream())
+      buildConfigField("String", "RESTCOUNTRIES_API", "\"${properties["RESTCOUNTRIES_API"]}\"")
+
       ksp {
          arg("room.schemaLocation", "$projectDir/schemas")
       }

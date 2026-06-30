@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
 
-internal class CountryClient(baseUrl: String) {
+internal class CountryClient(baseUrl: String, apiKey: String) {
 
 
    private val intercepter = HttpLoggingInterceptor().apply {
@@ -23,6 +23,7 @@ internal class CountryClient(baseUrl: String) {
       val request: Request = chain.request()
          .newBuilder()
          .header("accept", "application/json")
+         .header("Authorization", "Bearer $apiKey")
          .build()
       chain.proceed(request)
    }

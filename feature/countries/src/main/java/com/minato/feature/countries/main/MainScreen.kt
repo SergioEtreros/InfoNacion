@@ -42,6 +42,7 @@ fun MainScreen(
       rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
          if (granted) {
             model.getActualCountry { country ->
+               println(country)
                onItemClick(country)
             }
          } else {

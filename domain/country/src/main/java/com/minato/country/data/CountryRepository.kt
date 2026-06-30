@@ -23,4 +23,12 @@ class CountryRepository @Inject constructor(
             localDataSource.saveCountry(remoteCountry)
          }
       }.filterNotNull()
+
+   fun getCountryByCountryName(countryName: String) =
+      localDataSource.getCountryByCountryName(countryName).onEach { localCountry ->
+         if (localCountry == null) {
+            val remoteCountry = remoteDataSource.getCountryByCountryName(countryName)
+            localDataSource.saveCountry(remoteCountry)
+         }
+      }.filterNotNull()
 }

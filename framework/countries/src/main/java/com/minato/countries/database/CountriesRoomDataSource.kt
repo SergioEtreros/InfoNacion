@@ -32,6 +32,9 @@ class CountriesRoomDataSource @Inject constructor(
    override fun getCountryByCountryCode(countryCode: String) =
       countryDao.getCountryByCountryCode(countryCode).map { it?.toDomainCountry() }
 
+   override fun getCountryByCountryName(countryName: String) =
+      countryDao.getCountryByCountryName(countryName).map { it?.toDomainCountry() }
+
    override suspend fun saveCountry(country: Country) {
       countryDao.insertCountry(country.toDbModel())
       saveCountryDetails(country)

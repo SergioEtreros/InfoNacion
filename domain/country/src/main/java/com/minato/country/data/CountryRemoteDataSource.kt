@@ -5,4 +5,5 @@ import com.minato.country.entities.Country
 interface CountryRemoteDataSource {
    suspend fun getCountries(): List<Country>
    suspend fun getCountryByCountryCode(countryCode: String): Country
+   suspend fun getCountryByCountryName(countryName: String): Country
 }

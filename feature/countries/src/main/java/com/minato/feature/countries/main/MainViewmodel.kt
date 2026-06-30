@@ -24,6 +24,7 @@ class MainViewmodel @Inject constructor(
          state.value.ifSuccess { countries ->
             val region = getLastRegionUseCase()
             countries.firstOrNull { it.countryCode == region }?.let {
+               println(it)
                countryFounded(it)
             }
          }

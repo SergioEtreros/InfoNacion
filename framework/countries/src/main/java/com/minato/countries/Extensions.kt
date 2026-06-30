@@ -1,7 +1,9 @@
 package com.minato.countries
 
 import com.minato.countries.database.CountryFull
-import com.minato.countries.network.model.CountryItem
+import com.minato.countries.network.model.CountryObject
+import com.minato.countries.network.model.Currencies
+import com.minato.countries.network.model.Languages
 import com.minato.country.entities.Country
 import com.minato.country.entities.Currency
 import com.minato.country.entities.Language
@@ -102,27 +104,27 @@ fun Country.toDbModel() = DatabaseCountry(
    carSide = carSide
 )
 
-fun CountryItem.toDomainCountry() = Country(
-   countryCode = cca2,
-   cca3 = cca3,
-   commonName = name.common,
-   officialName = name.official,
-   capital = capital.firstOrNull() ?: "",
-   region = region,
-   subregion = subRegion,
+fun CountryObject.toDomainCountry() = Country(
+   countryCode = codes?.alpha2 ?: "",
+   cca3 = codes?.alpha3 ?: "",
+   commonName = names?.common ?: "",
+   officialName = names?.official ?: "",
+   capital = capitals.firstOrNull()?.name ?: "",
+   region = region ?: "",
+   subregion = subregion ?: "",
    continent = continents.firstOrNull() ?: "",
-   flag = flags.svg,
+   flag = flag?.svg ?: "",
 //   flag = flags.png,
-   independent = independent,
-   latitude = latlng?.firstOrNull() ?: 0.0,
-   longitude = latlng?.lastOrNull() ?: 0.0,
-   population = population,
-   googleMaps = maps?.googleMaps ?: "",
-   openStreetMaps = maps?.openStreetMaps ?: "",
-   carSide = car?.side ?: "",
+   independent = !(classification?.dependency ?: false),
+   latitude = coordinates?.lat ?: 0.0,
+   longitude = coordinates?.lng ?: 0.0,
+   population = population ?: 0,
+   googleMaps = links?.googleMaps ?: "",
+   openStreetMaps = links?.openStreetMaps ?: "",
+   carSide = cars?.side ?: "",
    currencies = currencies.map { it.toDomainCurrency() },
    languages = languages.map { it.toDomainLanguage() },
-   translations = translations.map { it.toDomainTranslation() },
+   translations = names?.translations?.map { it.toDomainTranslation() } ?: emptyList(),
    timeZones = timezones,
    borders = borders
 )
@@ -135,3 +137,9 @@ private fun NetworkLanguage.toDomainLanguage(): Language =
 
 private fun NetworkCurrency.toDomainCurrency(): Currency =
    Currency(code = currencyCode, name = name, symbol = symbol)
+
+private fun Currencies.toDomainCurrency(): Currency =
+   Currency(code = code, name = name, symbol = symbol)
+
+private fun Languages.toDomainLanguage(): Language =
+   Language(languageCode = iso6391, name = name)

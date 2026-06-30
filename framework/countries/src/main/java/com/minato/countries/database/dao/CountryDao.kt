@@ -19,6 +19,10 @@ interface CountryDao {
    @Query("Select * from country where countryCode = :countryCode and capital != ''")
    fun getCountryByCountryCode(countryCode: String): Flow<CountryFull?>
 
+   @Transaction
+   @Query("Select * from country where commonName = :countryName and capital != ''")
+   fun getCountryByCountryName(countryName: String): Flow<CountryFull?>
+
    @Query("Select count(*) from country")
    suspend fun count(): Int
 

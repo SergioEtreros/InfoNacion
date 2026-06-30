@@ -6,5 +6,6 @@ import javax.inject.Inject
 class GetCountryDetailsUseCase @Inject constructor(
    private val repository: CountryRepository
 ) {
-   operator fun invoke(countryCode: String) = repository.getCountryByCountryCode(countryCode)
+   //   operator fun invoke(countryCode: String) = repository.getCountryByCountryCode(countryCode)
+   operator fun invoke(countryName: String) = repository.getCountryByCountryName(countryName)
 }

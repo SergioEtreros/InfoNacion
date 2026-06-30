@@ -12,12 +12,12 @@ import javax.inject.Named
 
 @HiltViewModel
 class DetailViewmodel @Inject constructor(
-   @param:Named("countryCode") private val countryCode: String,
+   @param:Named("countryName") private val countryName: String,
    getCountryDetailsUseCase: GetCountryDetailsUseCase,
    private val openMapUseCase: OpenMapUseCase
 ) : ViewModel() {
 
-   val state = getCountryDetailsUseCase(countryCode).stateAsResultIn(viewModelScope)
+   val state = getCountryDetailsUseCase(countryName).stateAsResultIn(viewModelScope)
 
    fun openMap(url: String) {
       viewModelScope.launch {

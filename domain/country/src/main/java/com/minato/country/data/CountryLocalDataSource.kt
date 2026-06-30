@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 interface CountryLocalDataSource {
    val countries: Flow<List<Country>>
    fun getCountryByCountryCode(countryCode: String): Flow<Country?>
+   fun getCountryByCountryName(countryName: String): Flow<Country?>
    suspend fun saveCountry(country: Country)
    suspend fun saveAllCountries(countries: List<Country>)
 }

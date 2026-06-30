@@ -17,7 +17,8 @@ fun Navigation() {
    NavHost(navController = navController, startDestination = Main) {
       composable<Main> {
          MainScreen { country ->
-            navController.navigate(Detail(country.countryCode))
+            println(country)
+            navController.navigate(Detail(country.commonName))
          }
       }
 

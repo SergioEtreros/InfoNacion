@@ -32,7 +32,10 @@ internal object FrameworkCoreModule {
    fun providesBordersDao(db: CountryDb) = db.bordersDao()
 
    @Provides
-   fun provideCountryService(@Named("base_url") baseUrl: String) = CountryClient(baseUrl).instance
+   fun provideCountryService(
+      @Named("base_url") baseUrl: String,
+      @Named("restcountries_api") restCountriesApi: String
+   ) = CountryClient(baseUrl, restCountriesApi).instance
 }
 
 @Module
@@ -47,5 +50,5 @@ object FrameworkExtrasModule {
    @Provides
    @Singleton
    @Named("base_url")
-   fun provideBaseUrl() = "https://api.restcountries.com/countries/v5"
+   fun provideBaseUrl() = "https://api.restcountries.com/countries/"
 }
